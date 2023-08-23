@@ -281,6 +281,7 @@ data WarningName
   | UselessInline_
   | UselessPatternDeclarationForRecord_
   | UselessPublic_
+  | UselessTactic_
   | UserWarning_
   | WithoutKFlagPrimEraseEquality_
   | WrongInstanceDeclaration_
@@ -407,6 +408,7 @@ warningNameDescription = \case
   UselessPrivate_                  -> "`private' blocks where they have no effect."
   UselessPublic_                   -> "`public' blocks where they have no effect."
   UselessPatternDeclarationForRecord_ -> "`pattern' attributes where they have no effect."
+  UselessTactic_                   -> "`@tactic` attributes where they have no effect."
   -- Scope and Type Checking Warnings
   AbsurdPatternRequiresNoRHS_      -> "A clause with an absurd pattern does not need a Right Hand Side."
   AsPatternShadowsConstructorOrPatternSynonym_ -> "@-patterns that shadow constructors or pattern synonyms."

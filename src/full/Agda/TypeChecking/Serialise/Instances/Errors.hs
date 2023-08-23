@@ -93,6 +93,7 @@ instance EmbPrj Warning where
     UnfoldTransparentName nm              -> icodeN 44 UnfoldTransparentName nm
     UselessOpaque                         -> icodeN 45 UselessOpaque
     InlineNoExactSplit a b                -> icodeN 46 InlineNoExactSplit a b
+    UselessTactic                         -> icodeN 47 UselessTactic
 
   value = vcase $ \ case
     [0, a, b]            -> valuN UnreachableClauses a b
@@ -142,6 +143,7 @@ instance EmbPrj Warning where
     [44, a]              -> valuN UnfoldTransparentName a
     [45]                 -> valuN UselessOpaque
     [46, a, b]           -> valuN InlineNoExactSplit a b
+    [47]                 -> valuN UselessTactic
     _ -> malformed
 
 instance EmbPrj OptionWarning where
@@ -432,6 +434,7 @@ instance EmbPrj WarningName where
     UnfoldTransparentName_                       -> 99
     UselessOpaque_                               -> 100
     InlineNoExactSplit_                          -> 101
+    UselessTactic_                               -> 102
 
   value = \case
     0   -> return OverlappingTokensWarning_
@@ -536,6 +539,7 @@ instance EmbPrj WarningName where
     99  -> return UnfoldTransparentName_
     100 -> return UselessOpaque_
     101 -> return InlineNoExactSplit_
+    102 -> return UselessTactic_
     _   -> malformed
 
 
